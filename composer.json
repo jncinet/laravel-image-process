@@ -1,0 +1,32 @@
+{
+  "name": "jncinet/laravel-image-process",
+  "description": "laravel image process.",
+  "keywords": [
+    "laravel",
+    "image",
+    "process"
+  ],
+  "homepage": "https://www.qihucms.com",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "zhangye",
+      "email": "y@qilephp.com"
+    }
+  ],
+  "require": {
+    "intervention/image": "^2.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Jncinet\\ImageProcess\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Jncinet\\ImageProcess\\ImageProcessServiceProvider"
+      ]
+    }
+  }
+}
