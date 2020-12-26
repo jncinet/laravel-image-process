@@ -8,11 +8,11 @@ use Jncinet\ImageProcess\Exceptions\InvalidGatewayException;
 
 /**
  * Class ImageProcess
- * @method path(string $path)
+ * @method $this path(string $path)
  * @method string url()
- * @method round(array | int $radius)
- * @method resize($mode = 0, array $params = [])
- * @method watermark($type = 'image', $params = [])
+ * @method $this round(array | int $radius)
+ * @method $this resize($mode = 0, array $params = [])
+ * @method $this watermark($type = 'image', $params = [])
  * @method array info()
  * @package Jncinet\ImageProcess
  */
@@ -26,7 +26,7 @@ class ImageProcess
      */
     public function __call($method, $params)
     {
-        $gateway = get_class($this) . '\\' . Str::studly(config('filesystems.default')) . 'Gateway';
+        $gateway = get_class($this) . '\\Gateways\\' . Str::studly(config('filesystems.default')) . 'Gateway';
 
         if (class_exists($gateway)) {
             $app = new $gateway();
