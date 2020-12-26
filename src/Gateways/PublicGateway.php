@@ -7,10 +7,10 @@ use Intervention\Image\Image;
 use Jncinet\ImageProcess\Exceptions\InvalidArgumentException;
 
 /**
- * Class LocalGateway
+ * Class PublicGateway
  * @package Jncinet\ImageProcess\Gateways
  */
-class LocalGateway extends Gateway
+class PublicGateway extends Gateway
 {
     protected $params = [];
 
@@ -22,7 +22,7 @@ class LocalGateway extends Gateway
     public function url(): string
     {
         // 源文件完整路径 eg. /www/……/path/oldFilename.jpg
-        $filePath = config('filesystems.disks.local.root') . DIRECTORY_SEPARATOR . $this->path;
+        $filePath = config('filesystems.disks.public.root') . DIRECTORY_SEPARATOR . $this->path;
         // 源文章后缀名 eg. jpg
         $fileSuffix = Support::getFileSuffix($this->path);
         // 新文件路径及名称 eg. path/oldFilename_newFilename.jpg
