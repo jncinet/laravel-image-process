@@ -126,17 +126,6 @@ class Support
     }
 
     /**
-     * 格式化本地图片参数
-     *
-     * @param array $params
-     * @return string
-     */
-    public static function formatLocalParams(array $params = [])
-    {
-        return '';
-    }
-
-    /**
      * @param $str
      * @return bool|string
      */
@@ -230,6 +219,6 @@ class Support
      */
     public static function md5Filename(array $params = [])
     {
-        return md5(json_encode($params));
+        return count($params) > 0 ? '_' . md5(json_encode($params)) : '';
     }
 }

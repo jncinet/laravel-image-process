@@ -3,7 +3,8 @@
 namespace Jncinet\ImageProcess\Gateways;
 
 use Illuminate\Support\Facades\Storage;
-use Intervention\Image\Image;
+use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 use Jncinet\ImageProcess\Exceptions\InvalidArgumentException;
 
 /**
@@ -28,12 +29,16 @@ class LocalGateway extends Gateway
         // 新文件路径及名称 eg. path/oldFilename_newFilename.jpg
         $newFilePath = str_replace(
             '.' . $fileSuffix,
-            '_' . Support::md5Filename(Support::formatLocalParams($this->params)) . '.' . $fileSuffix,
+            Support::md5Filename($this->params) . '.' . $fileSuffix,
             $this->path
         );
+        // 如果切圆角则后缀改为png
+        if (array_key_exists('round', $this->params) && $fileSuffix != 'png') {
+            $newFilePath = Str::replaceLast('.' . $fileSuffix, '.png', $newFilePath);
+        }
 
         // 如果新文件名不存在则生成文件
-        if (!Storage::drive('public')->exists($newFilePath)) {
+        if (!Storage::exists($newFilePath) && Storage::exists($this->path)) {
             // 源图
             $img = Image::make($filePath);
             // 重置图片大小
@@ -51,10 +56,6 @@ class LocalGateway extends Gateway
                             $canvas->pixel($c, $x, $y);
                         }
                     }
-                }
-                // 后缀改为png
-                if ($fileSuffix != 'png') {
-                    $newFilePath = Str::replaceLast('.' . $fileSuffix, '.png', $newFilePath);
                 }
                 $img = $canvas;
             }

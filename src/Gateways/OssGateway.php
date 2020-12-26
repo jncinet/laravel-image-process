@@ -26,12 +26,20 @@ class OssGateway extends Gateway
     /**
      * 图片圆角
      *
-     * @param int $radius
+     * @param int|array $radius
      * @return $this
      */
     public function round($radius)
     {
-        $this->params['circle'] = ['r' => $radius];
+        if (empty($radius) || (is_array($radius) && count($radius) != 2)) {
+            return $this;
+        }
+
+        if (is_array($radius)) {
+            $this->params['circle'] = ['r' => min($radius['radiusx'], $radius['radiusy'])];
+        } else {
+            $this->params['circle'] = ['r' => $radius];
+        }
 
         return $this;
     }

@@ -27,7 +27,7 @@ class QiniuGateway extends Gateway
     /**
      * 图片圆角
      *
-     * @param string|array $radius
+     * @param int|array $radius
      * @return $this
      */
     public function round($radius)
