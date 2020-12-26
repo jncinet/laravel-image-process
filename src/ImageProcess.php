@@ -26,7 +26,7 @@ class ImageProcess
      */
     public function __call($method, $params)
     {
-        $gateway = get_class($this) . '\\Gateways\\' . Str::studly(config('filesystems.default')) . 'Gateway';
+        $gateway = __NAMESPACE__ . '\\Gateways\\' . Str::studly(config('filesystems.default')) . 'Gateway';
 
         if (class_exists($gateway)) {
             $app = new $gateway();
