@@ -2,6 +2,10 @@
 
 namespace Jncinet\ImageProcess\Exceptions;
 
+/**
+ * Class InvalidGatewayException
+ * @package Jncinet\ImageProcess\Exceptions
+ */
 class InvalidGatewayException extends Exception
 {
     /**

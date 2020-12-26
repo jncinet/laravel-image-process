@@ -17,7 +17,7 @@ class OssGateway extends Gateway
      *
      * @return string
      */
-    public function url()
+    public function url(): string
     {
         $fop = Support::formatOssParams($this->params);
         return $this->url . '?x-oss-process=' . $fop;

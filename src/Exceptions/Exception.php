@@ -2,6 +2,10 @@
 
 namespace Jncinet\ImageProcess\Exceptions;
 
+/**
+ * Class Exception
+ * @package Jncinet\ImageProcess\Exceptions
+ */
 class Exception extends \Exception
 {
     const UNKNOWN_ERROR = 9999;

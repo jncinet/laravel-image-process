@@ -14,7 +14,12 @@ class LocalGateway extends Gateway
 {
     protected $params = [];
 
-    public function url()
+    /**
+     * 图片本地路径
+     *
+     * @return string
+     */
+    public function url(): string
     {
         // 源文件完整路径 eg. /www/……/path/oldFilename.jpg
         $filePath = config('filesystems.disks.public.root') . DIRECTORY_SEPARATOR . $this->path;

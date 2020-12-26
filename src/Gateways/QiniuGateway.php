@@ -18,7 +18,7 @@ class QiniuGateway extends Gateway
      *
      * @return string
      */
-    public function url()
+    public function url(): string
     {
         $fop = Support::formatQiniuParams($this->params, $this->param_modules);
         return $this->url . '?' . $fop;

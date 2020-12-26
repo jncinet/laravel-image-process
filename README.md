@@ -1,11 +1,11 @@
 ## Laravel ImageProcess
 
-
+## 安装
 ```shell
 $ composer require jncinet/laravel-image-process
 ```
 
-### 说明
+## 方法
 
 * @method path(string $path) 输入图片地址
 * @method string url() 返回图片地址
@@ -14,7 +14,7 @@ $ composer require jncinet/laravel-image-process
 * @method watermark($type = 'image', $params = []) 水印
 * @method array info() 获取图片信息
 
-### 使用示例
+## 示例
 ```php
 // 获取图片信息
 app('image-process')->path('源图地址')->info();

@@ -2,6 +2,10 @@
 
 namespace Jncinet\ImageProcess\Exceptions;
 
+/**
+ * Class InvalidArgumentException
+ * @package Jncinet\ImageProcess\Exceptions
+ */
 class InvalidArgumentException extends Exception
 {
     /**

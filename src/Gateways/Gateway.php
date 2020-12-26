@@ -12,7 +12,7 @@ abstract class Gateway implements GatewayInterface
     /**
      * 设置图片路径
      *
-     * @param $path
+     * @param string $path
      * @return $this
      */
     public function path($path)
