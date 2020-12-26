@@ -141,7 +141,7 @@ class PublicGateway extends Gateway
                 }
             }
 
-            $img->save($newFilePath);
+            $img->save(config('filesystems.disks.public.root') . DIRECTORY_SEPARATOR . $newFilePath);
         }
 
         return Storage::url($newFilePath);

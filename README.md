@@ -15,7 +15,7 @@ $ composer require jncinet/laravel-image-process
 * @method array info() 获取图片信息
 
 ## 示例
-参数以七牛配置以基础自适应为本地、阿里云
+参数以七牛配置以基础自适应为本地、阿里云  
 [七牛图片缩放说明文档](https://developer.qiniu.com/dora/api/1279/basic-processing-images-imageview2)  
 [七牛图片水印说明文档](https://developer.qiniu.com/dora/api/1316/image-watermarking-processing-watermark)
 ```php
