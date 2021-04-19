@@ -87,7 +87,7 @@ class Support
     public static function getParams($params = [], $key_list = [])
     {
         foreach ($params as $key => $param) {
-            if (!array_key_exists($key, $key_list)) {
+            if (!in_array($key, $key_list)) {
                 unset($params[$key]);
             }
         }
